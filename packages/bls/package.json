@@ -1,5 +1,5 @@
 {
-  "name": "@metanode/ui",
+  "name": "@vnos/bls",
   "version": "0.1.0",
   "private": true,
   "main": "dist/index.js",
@@ -10,5 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@noble/bls12-381": "^1.4.0",
+    "@noble/curves": "^2.0.1"
+  }
 }

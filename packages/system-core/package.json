@@ -1,5 +1,5 @@
 {
-  "name": "@metanode/ui",
+  "name": "@metanode/system-core",
   "version": "0.1.0",
   "private": true,
   "main": "dist/index.js",

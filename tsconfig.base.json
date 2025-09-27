@@ -10,11 +10,7 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@shared/logger": ["shared/logger/src"],
-      "@shared/exception": ["shared/exception/src"],
-      "@shared/otel": ["shared/otel/src"],
-      "@shared/types": ["shared/types/src"],
-      "@shared/http": ["shared/http/src"]
+      "@metanode/system-core": ["packages/system-core/src"]
     }
   }
 }
