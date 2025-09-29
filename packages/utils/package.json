@@ -1,5 +1,5 @@
 {
-  "name": "@vnos/bls",
+  "name": "@vnos/utils",
   "version": "0.1.0",
   "private": true,
   "main": "dist/index.js",
@@ -10,9 +10,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@noble/bls12-381": "^1.4.0",
-    "@noble/curves": "^2.0.1"
-  }
+  "description": ""
 }

@@ -10,7 +10,7 @@ const LayoutContext = React.createContext<LayoutContentProps>(null!);
 
 export interface LayoutContextProviderProps extends React.PropsWithChildren {}
 export function LayoutContextProvider({ children }: LayoutContextProviderProps) {
-  const [layout, setLayout] = useState<LayoutContentProps>({
+  const [layout, _setLayout] = useState<LayoutContentProps>({
     heightStatusBar: HEIGHT_STATUSBAR,
     heightDock: HEIGHT_DOCK,
   });

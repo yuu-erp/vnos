@@ -8,52 +8,88 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as rootRouteImport } from "./routes/__root";
+import { Route as IndexRouteImport } from "./routes/index";
+import { Route as LockIndexRouteImport } from "./routes/lock/index";
+import { Route as LauncherIndexRouteImport } from "./routes/launcher/index";
 
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
+const LockIndexRoute = LockIndexRouteImport.update({
+  id: "/lock/",
+  path: "/lock/",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const LauncherIndexRoute = LauncherIndexRouteImport.update({
+  id: "/launcher/",
+  path: "/launcher/",
+  getParentRoute: () => rootRouteImport,
+} as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  "/": typeof IndexRoute;
+  "/launcher": typeof LauncherIndexRoute;
+  "/lock": typeof LockIndexRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  "/": typeof IndexRoute;
+  "/launcher": typeof LauncherIndexRoute;
+  "/lock": typeof LockIndexRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  __root__: typeof rootRouteImport;
+  "/": typeof IndexRoute;
+  "/launcher/": typeof LauncherIndexRoute;
+  "/lock/": typeof LockIndexRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
-  fileRoutesById: FileRoutesById
+  fileRoutesByFullPath: FileRoutesByFullPath;
+  fullPaths: "/" | "/launcher" | "/lock";
+  fileRoutesByTo: FileRoutesByTo;
+  to: "/" | "/launcher" | "/lock";
+  id: "__root__" | "/" | "/launcher/" | "/lock/";
+  fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  IndexRoute: typeof IndexRoute;
+  LauncherIndexRoute: typeof LauncherIndexRoute;
+  LockIndexRoute: typeof LockIndexRoute;
 }
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
+    "/": {
+      id: "/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof IndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/lock/": {
+      id: "/lock/";
+      path: "/lock";
+      fullPath: "/lock";
+      preLoaderRoute: typeof LockIndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/launcher/": {
+      id: "/launcher/";
+      path: "/launcher";
+      fullPath: "/launcher";
+      preLoaderRoute: typeof LauncherIndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-}
+  LauncherIndexRoute: LauncherIndexRoute,
+  LockIndexRoute: LockIndexRoute,
+};
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
