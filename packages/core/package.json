@@ -1,5 +1,5 @@
 {
-  "name": "@metanode/core",
+  "name": "@vnos/core",
   "version": "0.1.0",
   "private": true,
   "main": "dist/index.js",
@@ -10,5 +10,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "nanoid": "^5.1.6"
+  }
 }
