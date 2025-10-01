@@ -5,9 +5,18 @@ import Dock from "../components/dock";
 export default function LauncherPage() {
   return (
     <React.Fragment>
-      <Statusbar />
-      LAUNCHER OS | VIETNAM OS.
-      <Dock />
+      <main className="w-screen h-screen overflow-hidden">
+        <Statusbar />
+        LAUNCHER OS | VIETNAM OS.
+        <div className="fixed inset-0 -z-10 flex items-center justify-center">
+          <img
+            src="/background.webp"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+        <Dock />
+      </main>
     </React.Fragment>
   );
 }

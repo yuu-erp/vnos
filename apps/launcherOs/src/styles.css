@@ -129,18 +129,27 @@ code {
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50 overflow-hidden;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-hidden;
   }
   div {
     display: block;
     unicode-bidi: isolate;
   }
-  div, main, header {
+  div,
+  main,
+  header,
+  button {
     @apply items-stretch bg-transparent border-none box-border flex basis-auto flex-col shrink-0 list-none m-0 min-h-0 min-w-0 p-0 relative no-underline z-0;
   }
 }
 @layer utilities {
+}
+
+@layer components {
+  .docks-app {
+    border: 1px solid #1a1a1a30;
+  }
 }
